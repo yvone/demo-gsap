@@ -1,0 +1,57 @@
+.gsap {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.canvas {
+    display: flex;
+    flex: 1;
+    
+    padding: 0.5rem;
+    margin: 1rem;
+
+    border: 1px solid #CC6600;
+    border-radius: 5px;
+    background-color: #FFF2E6;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 400px;
+
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+    margin: 1rem;
+
+    border: 1px solid #5C0B16;
+    border-radius: 5px;
+    background-color: #F8BBC3;
+    color: #5C0B16;
+
+    width: 5rem;
+    height: 5rem;
+}
+
+button {
+    padding: 0.5rem;
+
+    border: 1px solid #124C5C;
+    border-radius: 5px;
+    background-color: #BCD9E1;
+    color: #124C5C;
+
+    font-size: 2rem;
+    font-weight: bold;
+}

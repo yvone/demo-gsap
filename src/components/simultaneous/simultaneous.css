@@ -1,0 +1,24 @@
+.App {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+    margin: 1rem;
+
+    border: 1px solid #5C0B16;
+    border-radius: 5px;
+    background-color: #F8BBC3;
+    color: #5C0B16;
+
+    width: 5rem;
+    height: 5rem;
+}
+  
