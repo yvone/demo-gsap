@@ -1,5 +1,5 @@
 import React from 'react';
-import { TweenLite, TimelineLite } from 'gsap';
+import { TimelineLite } from 'gsap';
 import { IconButton } from 'spoton-lib';
 
 import './actions.css';
@@ -9,36 +9,42 @@ class GsapComponent extends React.Component {
         super(props);
 
         // refs for targets
+        this.container = null;
         this.overlay = null;
         this.actions = [];
 
         // tween ~ gsap animation
         this.myTween = new TimelineLite({paused: true});
+        // this.myTween = gsap.timeline();
 
-        this.handleHover = this.handleHover.bind(this);
-        this.handleOut = this.handleOut.bind(this);
+        this.playAnimation = this.playAnimation.bind(this);
+        this.stopAnimation = this.stopAnimation.bind(this);
     }
 
-    handleHover() {
+    componentDidMount(){
         this.myTween
             .to(this.overlay, {
                 duration: 0.1,
                 opacity: 1,
-                repeat: 0,
             })
-            .staggerFrom(this.actions,
-                1, {
-                    ease: 'expo.out',
-                    y: -50,
-                    opacity: 0,
-                    stagger: 0.1,
-                    repeat: 0,
-                }
-            )
-            .play();
+            .fromTo(this.actions, {
+                y: -50,
+                opacity: 0,
+            }, {
+                ease: 'expo.out',
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+            })
+        this.container.addEventListener("mouseenter", this.playAnimation);
+        this.container.addEventListener("mouseleave", this.stopAnimation);
     }
 
-    handleOut() {
+    playAnimation() {
+        this.myTween.play();
+    }
+
+    stopAnimation() {
         this.myTween.restart().pause()
     }
 
@@ -51,12 +57,12 @@ class GsapComponent extends React.Component {
         } = this.props;
 
         return (
-            <div className="container">
+            <div className="container"
+                ref={node => this.container = node}
+            >
                 <div
                     className="overlay"
                     ref={node => this.overlay = node}
-                    onMouseOver={this.handleHover}
-                    onMouseOut={this.handleOut}
                 >
                     {actions.map((action, idx) => (
                         <div
