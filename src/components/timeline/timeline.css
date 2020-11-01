@@ -1,10 +1,10 @@
-.gsap {
+.Container {
     display: flex;
     flex-direction: row;
     height: 100vh;
 }
 
-.canvas {
+.Canvas {
     display: flex;
     flex: 1;
     
@@ -16,18 +16,7 @@
     background-color: #FFF2E6;
 }
 
-.controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    width: 400px;
-
-    padding: 0.5rem;
-    margin: 1rem;
-}
-
-.element {
+.Element {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,6 +31,17 @@
 
     width: 5rem;
     height: 5rem;
+}
+
+.Controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 400px;
+
+    padding: 0.5rem;
+    margin: 1rem;
 }
 
 button {
